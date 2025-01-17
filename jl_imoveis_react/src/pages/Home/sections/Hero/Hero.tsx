@@ -7,8 +7,8 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Hero = () => {
 
-    const StyledHero = styled("div")(() => ({
-        backgroundColor: "black",
+    const StyledHero = styled("div")(({theme}) => ({
+        backgroundColor: theme.palette.primary.main,
         height: "100vh",
     }))
 
@@ -17,6 +17,22 @@ const Hero = () => {
         borderRadius: "50%",
     }))
 
+    const StyledButton = styled("button")(() => ({
+      backgroundColor: "#232323",
+      color: "white", // Azul padrão (pode ajustar conforme necessário)
+      border: "2px solid white",
+      borderRadius: "4px",
+      padding: "10px 20px",
+      fontSize: "16px",
+      fontWeight: "bold",
+      cursor: "pointer",
+      transition: "all 0.3s ease-in-out",
+      
+      "&:hover": {
+        backgroundColor: "green",
+        color: "white",
+      }  
+    }))
     return (
       <>
         <StyledHero>
@@ -27,27 +43,27 @@ const Hero = () => {
               <StyledImg src={Avatar} />
             </Grid>
             <Grid item xs={12} md={8}>
-              <Typography color="primary" variant="h1" textAlign="center">
+              <Typography color="primary.contrastText" variant="h1" textAlign="center">
                 Josefa Lopes
               </Typography>
-              <Typography color="primary" variant="h2" textAlign="center">
+              <Typography color="primary.contrastText" variant="h2" textAlign="center">
                 Corretora de Imóveis
               </Typography>
-              <Typography color="primary" variant="h4" textAlign="center">
+              <Typography color="primary.contrastText" variant="h4" textAlign="center">
                 Entre em contato comigo
               </Typography>
               <Grid container display="flex" justifyContent="center">
                 <Grid item xs={12} md={4} display="flex" justifyContent="center">
-                  <Button>
+                  <StyledButton>
                     <WhatsAppIcon />
-                    Whatsapp
-                  </Button>
+                    <Typography>Whatsapp</Typography>
+                  </StyledButton>
                 </Grid>
                 <Grid item xs={12} md={4} display="flex" justifyContent="center">
-                  <Button>
+                  <StyledButton>
                     <MailOutlineIcon />
-                    Email
-                  </Button>
+                    <Typography>Email</Typography>
+                  </StyledButton>
                 </Grid>
               </Grid>
             </Grid>
